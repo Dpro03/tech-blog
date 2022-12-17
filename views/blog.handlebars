@@ -1,0 +1,38 @@
+<div class="blog">
+    <h1>{{title}}</h1>
+    <div class="content">
+        {{content}}
+    </div>
+</div>
+
+{{#if logged_in}}
+<form class="blog-edit" action="/blog/{{id}}/edit" method="POST">
+    <input type="hidden" name="_method" value="PUT">
+    <input type="hidden" name="id" value="{{id}}">
+    <input type="hidden" name="title" value="{{title}}">
+    <input type="hidden" name="content" value="{{content}}">
+    <input type="submit" value="Edit">
+</form>
+{{/if}}
+
+{{! Path: config/views/blog-edit.handlebars }}
+
+<h2 class="text-center">Comments</h2>
+{{#each comments}}
+    <div class="comment">
+        <h3>{{name}}</h3>
+        <div class="content">
+            {{content}}
+        </div>
+    </div>
+{{/each}}
+
+<script src="js/blog.js"></script>
+
+{{! Path: config/views/blog-edit.handlebars }}
+
+{{#if logged_in}}
+
+
+
+
